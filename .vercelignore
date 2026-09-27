@@ -1,0 +1,28 @@
+# dependencies
+node_modules/
+
+# next.js build output
+.next/
+out/
+next-env.d.ts
+
+# runtime / memory artefacts — these are 190MB+ of leftover dev-server
+# heap snapshots and must never be uploaded
+*.heapsnapshot
+
+# local tooling state
+.shipstudio/
+.vscode/
+.idea/
+
+# logs
+*.log
+npm-debug.log*
+
+# os
+.DS_Store
+Thumbs.db
+
+# env files are handled by Vercel dashboard, never uploaded
+.env
+.env*.local

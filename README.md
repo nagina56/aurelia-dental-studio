@@ -4,7 +4,7 @@ A premium, fully responsive marketing website for a fictional dental clinic, bui
 
 > **Demonstration project.** Aurelia Dental Studio is a fictional brand created to demonstrate front-end capability. All copy, team members, testimonials, phone numbers and addresses are invented, and all photography is licensed stock imagery served from Pexels. Nothing here is a real clinic, and the site collects no real patient data.
 
-**Live site:** [aurelia-dental-studio.vercel.app](https://aurelia-dental-studio.vercel.app)
+**Live site:** [aurelia-dental-studio-gilt.vercel.app](https://aurelia-dental-studio-gilt.vercel.app) · **Source:** [github.com/nagina56/aurelia-dental-studio](https://github.com/nagina56/aurelia-dental-studio)
 
 ---
 
@@ -200,13 +200,17 @@ Because the variable is prefixed `NEXT_PUBLIC_`, the URL is inlined into the cli
 
 ## Deployment
 
-Deployed to **Vercel**; `next build` is detected automatically and no configuration is required.
+Deployed to **Vercel**; `next build` is detected automatically and no configuration is required. Production: [aurelia-dental-studio-gilt.vercel.app](https://aurelia-dental-studio-gilt.vercel.app)
 
 1. Import the repository at [vercel.com/new](https://vercel.com/new).
 2. Add `NEXT_PUBLIC_N8N_WEBHOOK_URL` under **Settings → Environment Variables** if you want the form to transmit.
 3. Deploy.
 
-Because it is a standard Next.js App Router project, Vercel handles the build, the image optimiser and ISR/caching with no extra setup.
+The GitHub repository is connected to the Vercel project, so **every push to `main` redeploys automatically**.
+
+Because it is a standard Next.js App Router project, Vercel handles the build, the image optimiser and caching with no extra setup. All nine routes are statically prerendered at build time.
+
+> `.vercelignore` is committed and excludes `node_modules`, `.next` and `*.heapsnapshot`. The latter are multi-hundred-megabyte dev-server heap snapshots that would otherwise be uploaded on every deploy.
 
 ## Accessibility
 
