@@ -1,0 +1,198 @@
+/* ==========================================================================
+   Appointment form
+   ========================================================================== */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+.form__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-4);
+}
+
+.form__row--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.form__row > .span-2 {
+  grid-column: span 2;
+}
+
+@media (max-width: 599px) {
+  .form__row,
+  .form__row--3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .form__row > .span-2 {
+    grid-column: auto;
+  }
+}
+
+/* Native date/time pickers get a visible affordance on dark-on-white */
+.input[type='date'],
+.input[type='time'] {
+  cursor: pointer;
+}
+
+.input[type='date']::-webkit-calendar-picker-indicator,
+.input[type='time']::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.input[type='date']:hover::-webkit-calendar-picker-indicator,
+.input[type='time']:hover::-webkit-calendar-picker-indicator {
+  opacity: 1;
+}
+
+/* Time slots as a radio group — larger targets than a native select */
+.slot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  gap: var(--sp-2);
+}
+
+.slot {
+  position: relative;
+  display: flex;
+}
+
+.slot input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+
+.slot span {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 46px;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--r-sm);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--c-text-muted);
+  text-align: center;
+  transition:
+    background var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.slot input:hover + span {
+  border-color: var(--c-forest);
+  color: var(--c-forest);
+}
+
+.slot input:focus-visible + span {
+  outline: 2px solid var(--c-gold);
+  outline-offset: 2px;
+}
+
+.slot input:checked + span {
+  background: var(--c-forest);
+  border-color: var(--c-forest);
+  color: var(--c-white);
+}
+
+/* Consent + honeypot */
+.form__consent {
+  display: flex;
+  gap: var(--sp-3);
+  align-items: flex-start;
+  font-size: var(--fs-xs);
+  line-height: 1.65;
+  color: var(--c-text-muted);
+}
+
+.form__consent input {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  margin-top: 2px;
+  accent-color: var(--c-forest);
+  cursor: pointer;
+}
+
+.form__consent a {
+  color: var(--c-forest);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.form__consent a:hover {
+  color: var(--c-gold-deep);
+}
+
+/* Honeypot — visually gone, still reachable by naive bots */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.form__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.form__actions .btn {
+  min-height: 54px;
+}
+
+.form__footnote {
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+  color: var(--c-text-faint);
+}
+
+/* Integration badge shown under the form */
+.integrations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-5);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--c-line);
+}
+
+.integrations__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-pill);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--c-text-muted);
+  background: var(--c-mist);
+}
+
+.integrations__item::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--c-gold);
+  flex: none;
+}
+
+.integrations__item--live::before {
+  background: #3f8f5f;
+}

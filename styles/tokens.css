@@ -1,0 +1,128 @@
+/* ==========================================================================
+   AURELIA DENTAL STUDIO — Design tokens
+   Single source of truth for colour, type, space, motion and layout.
+   ========================================================================== */
+
+:root {
+  /* --- Brand palette -------------------------------------------------- */
+  --c-forest: #173f3a;          /* primary — deep forest green            */
+  --c-forest-deep: #0e2a26;     /* deepest green, footer gradient base    */
+  --c-forest-soft: #1f4f48;     /* hover / raised green surfaces          */
+  --c-charcoal: #202426;        /* secondary + text                       */
+  --c-charcoal-soft: #2c3235;   /* raised dark surface                    */
+  --c-gold: #c7a66a;            /* accent — muted champagne gold          */
+  --c-gold-soft: #d8bd8b;       /* accent hover / on dark surfaces        */
+  --c-gold-deep: #a8874c;       /* accent pressed                         */
+  --c-sage: #dce8e1;            /* supporting — soft sage                 */
+  --c-sage-deep: #c3d6cb;       /* sage pressed / borders                 */
+  --c-mist: #f3f6f3;            /* light background — soft sage-gray      */
+  --c-white: #ffffff;           /* surface                                 */
+  --c-cream: #faf8f4;           /* warm off-white, used sparingly         */
+
+  /* --- Text ----------------------------------------------------------- */
+  --c-text: var(--c-charcoal);
+  --c-text-muted: #66736f;      /* muted gray-green                       */
+  --c-text-faint: #8b958f;
+  --c-text-on-dark: #f2f5f2;
+  --c-text-on-dark-muted: #a9b8b0;
+  --c-text-on-gold: #1c2321;
+
+  /* --- Lines & overlays ----------------------------------------------- */
+  --c-line: rgba(32, 36, 38, 0.12);
+  --c-line-strong: rgba(32, 36, 38, 0.2);
+  --c-line-dark: rgba(242, 245, 242, 0.16);
+  --c-line-gold: rgba(199, 166, 106, 0.42);
+
+  /* --- Type ----------------------------------------------------------- */
+  --font-serif: var(--font-playfair), 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: var(--font-manrope), 'Manrope', -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Type scale — fluid, clamped so it never overflows a 320px viewport. */
+  --fs-display: clamp(2.75rem, 1.35rem + 5.9vw, 6.25rem);
+  --fs-h1: clamp(2.25rem, 1.3rem + 3.9vw, 4.5rem);
+  --fs-h2: clamp(1.95rem, 1.25rem + 2.7vw, 3.5rem);
+  --fs-h3: clamp(1.5rem, 1.15rem + 1.4vw, 2.25rem);
+  --fs-h4: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem);
+  --fs-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.3125rem);
+  --fs-body: 1rem;
+  --fs-sm: 0.9375rem;
+  --fs-xs: 0.8125rem;
+  --fs-eyebrow: 0.6875rem;
+
+  --lh-display: 1.02;
+  --lh-heading: 1.08;
+  --lh-title: 1.2;
+  --lh-body: 1.7;
+  --lh-tight: 1.45;
+
+  --ls-display: -0.02em;
+  --ls-heading: -0.015em;
+  --ls-eyebrow: 0.24em;
+  --ls-label: 0.14em;
+
+  /* --- Space — 4px base, 8px rhythm ----------------------------------- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 2.5rem;
+  --sp-8: 3rem;
+  --sp-9: 4rem;
+  --sp-10: 5rem;
+  --sp-11: 6.5rem;
+  --sp-12: 8rem;
+
+  /* Fluid section padding */
+  --section-y: clamp(3.5rem, 2rem + 6.5vw, 8rem);
+  --section-y-lg: clamp(4rem, 2rem + 8.5vw, 10rem);
+  --gutter: clamp(1.25rem, 0.6rem + 2.6vw, 3.5rem);
+
+  /* --- Layout --------------------------------------------------------- */
+  --container: 1280px;
+  --container-narrow: 940px;
+  --container-text: 68ch;
+  --nav-h: 84px;
+  --nav-h-scrolled: 72px;
+
+  /* --- Radii — deliberately restrained ------------------------------- */
+  --r-xs: 2px;
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-pill: 999px;
+
+  /* --- Shadows — soft, green-tinted, never heavy --------------------- */
+  --sh-sm: 0 1px 2px rgba(14, 42, 38, 0.05), 0 2px 8px rgba(14, 42, 38, 0.04);
+  --sh-md: 0 4px 14px rgba(14, 42, 38, 0.07), 0 12px 32px rgba(14, 42, 38, 0.06);
+  --sh-lg: 0 10px 30px rgba(14, 42, 38, 0.09), 0 28px 64px rgba(14, 42, 38, 0.09);
+  --sh-gold: 0 10px 34px rgba(168, 135, 76, 0.24);
+
+  /* --- Motion --------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms;
+  --dur-base: 320ms;
+  --dur-slow: 620ms;
+  --dur-reveal: 900ms;
+
+  --z-nav: 100;
+  --z-menu: 110;
+  --z-toast: 120;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --nav-h: 70px;
+    --nav-h-scrolled: 62px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 1ms;
+    --dur-base: 1ms;
+    --dur-slow: 1ms;
+    --dur-reveal: 1ms;
+  }
+}
